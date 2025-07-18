@@ -180,4 +180,3 @@ if [ "${1:-}" = "success" ]; then
     handle_success
 else
     main "$@"
-fi

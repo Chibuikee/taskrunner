@@ -10,9 +10,9 @@ OnFailure=fastapiscript-failure-notification@%i.service
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/fastapiscript.sh
-User=your-username
-Group=your-group
-WorkingDirectory=/fastapiscript
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/fastapiscript
 Environment=PATH=/usr/local/bin:/usr/bin:/bin
 TimeoutStartSec=60
 TimeoutStopSec=30
@@ -29,6 +29,3 @@ ReadWritePaths=/var/log/fastapiscript /tmp
 
 [Install]
 WantedBy=multi-user.target
-
-
-

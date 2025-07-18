@@ -15,7 +15,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.FileHandler("/var/log/fastapi-runner/app.log"),
+        logging.FileHandler("/var/log/fastapiscript/app.log"),
         logging.StreamHandler(sys.stdout),
     ],
 )
