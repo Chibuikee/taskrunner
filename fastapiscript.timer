@@ -1,0 +1,18 @@
+# =============================================================================
+# File: /etc/systemd/system/fastapiscript.timer
+# =============================================================================
+
+[Unit]
+Description=Run FASTAPISCRIPT application every 2 hours
+Requires=fastapiscript.service
+
+[Timer]
+# Run every 2 hours
+OnCalendar=*:0/2:00
+# Run immediately if system was down during scheduled time
+Persistent=true
+# Add some randomization to prevent system load spikes
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

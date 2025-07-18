@@ -1,0 +1,34 @@
+# =============================================================================
+# File: /etc/systemd/system/fastapiscript.service
+# =============================================================================
+
+[Unit]
+Description=FastAPI Runner Service
+After=network.target
+OnFailure=fastapiscript-failure-notification@%i.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/fastapiscript.sh
+User=your-username
+Group=your-group
+WorkingDirectory=/fastapiscript
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+TimeoutStartSec=60
+TimeoutStopSec=30
+Restart=no
+StandardOutput=journal
+StandardError=journal
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/log/fastapiscript /tmp
+
+[Install]
+WantedBy=multi-user.target
+
+
+

@@ -1,0 +1,14 @@
+# =============================================================================
+# File: /etc/systemd/system/fastapiscript-failure-notification@.service
+# =============================================================================
+
+[Unit]
+Description=Send notification for failed FastAPI service %i
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/fastapiscript-failure-notification.sh %i
+User=chibuike
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+StandardOutput=journal
+StandardError=journal
